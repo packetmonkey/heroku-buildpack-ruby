@@ -503,11 +503,13 @@ WARNING
           bundler_path   = "#{pwd}/#{slug_vendor_base}/gems/#{BUNDLER_GEM_PATH}/lib"
           # we need to set BUNDLE_CONFIG and BUNDLE_GEMFILE for
           # codon since it uses bundler.
+          gm_include_path = "#{pwd}/#{slug_vendor_base}/graphicsmagick/include/GraphicsMagick"
+          puts "GM Include Path: #{gm_include_path}"
           env_vars       = {
             "BUNDLE_GEMFILE"                => "#{pwd}/Gemfile",
             "BUNDLE_CONFIG"                 => "#{pwd}/.bundle/config",
-            "CPATH"                         => noshellescape("#{yaml_include}:$CPATH"),
-            "CPPATH"                        => noshellescape("#{yaml_include}:$CPPATH"),
+            "CPATH"                         => noshellescape("#{yaml_include}:#{gm_include_path}:$CPATH"),
+            "CPPATH"                        => noshellescape("#{yaml_include}:#{gm_include_path}:$CPPATH"),
             "LIBRARY_PATH"                  => noshellescape("#{yaml_lib}:$LIBRARY_PATH"),
             "RUBYOPT"                       => syck_hack,
             "NOKOGIRI_USE_SYSTEM_LIBRARIES" => "true"
