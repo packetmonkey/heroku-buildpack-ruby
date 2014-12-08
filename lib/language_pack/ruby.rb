@@ -514,6 +514,9 @@ WARNING
             "RUBYOPT"                       => syck_hack,
             "NOKOGIRI_USE_SYSTEM_LIBRARIES" => "true"
           }
+          puts '!!!!!!!!!!!!!!!!!!!!!'
+          puts env_vars
+          puts '!!!!!!!!!!!!!!!!!!!!!'
           env_vars["BUNDLER_LIB_PATH"] = "#{bundler_path}" if ruby_version.ruby_version == "1.8.7"
           puts "Running: #{bundle_command}"
           instrument "ruby.bundle_install" do
