@@ -549,13 +549,14 @@ WARNING
           # codon since it uses bundler.
           puts "Slug Vendor Base: #{slug_vendor_base}"
           gm_include_path = "#{pwd}/#{slug_vendor_base}/../../../graphicsmagick/include/GraphicsMagick"
+          gm_lib_path = "#{pwd}/#{slug_vendor_base}/../../../graphicsmagick/lib"
           puts "GM Include Path: #{gm_include_path}"
           env_vars       = {
             "BUNDLE_GEMFILE"                => "#{pwd}/Gemfile",
             "BUNDLE_CONFIG"                 => "#{pwd}/.bundle/config",
             "CPATH"                         => noshellescape("#{yaml_include}:#{gm_include_path}:$CPATH"),
             "CPPATH"                        => noshellescape("#{yaml_include}:#{gm_include_path}:$CPPATH"),
-            "LIBRARY_PATH"                  => noshellescape("#{yaml_lib}:$LIBRARY_PATH"),
+            "LIBRARY_PATH"                  => noshellescape("#{yaml_lib}:#{gm_lib_path}:$LIBRARY_PATH"),
             "RUBYOPT"                       => syck_hack,
             "NOKOGIRI_USE_SYSTEM_LIBRARIES" => "true"
           }
