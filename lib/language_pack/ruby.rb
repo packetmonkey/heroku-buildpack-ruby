@@ -547,10 +547,12 @@ WARNING
           bundler_path   = "#{pwd}/#{slug_vendor_base}/gems/#{BUNDLER_GEM_PATH}/lib"
           # we need to set BUNDLE_CONFIG and BUNDLE_GEMFILE for
           # codon since it uses bundler.
+
           puts "Slug Vendor Base: #{slug_vendor_base}"
-          gm_include_path = "#{pwd}/#{slug_vendor_base}/../../../graphicsmagick/include/GraphicsMagick"
-          gm_lib_path = "#{pwd}/#{slug_vendor_base}/../../../graphicsmagick/lib"
+          gm_include_path = File.expand_path "#{pwd}/#{slug_vendor_base}/../../../graphicsmagick/include/GraphicsMagick"
+          gm_lib_path     = File.expand_path "#{pwd}/#{slug_vendor_base}/../../../graphicsmagick/lib"
           puts "GM Include Path: #{gm_include_path}"
+
           env_vars       = {
             "BUNDLE_GEMFILE"                => "#{pwd}/Gemfile",
             "BUNDLE_CONFIG"                 => "#{pwd}/.bundle/config",
@@ -563,6 +565,7 @@ WARNING
           puts '!!!!!!!!!!!!!!!!!!!!!'
           puts env_vars
           puts '!!!!!!!!!!!!!!!!!!!!!'
+
           env_vars["BUNDLER_LIB_PATH"] = "#{bundler_path}" if ruby_version.ruby_version == "1.8.7"
           puts "Running: #{bundle_command}"
           instrument "ruby.bundle_install" do
