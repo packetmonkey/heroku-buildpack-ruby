@@ -552,7 +552,7 @@ WARNING
           gm_path         = File.expand_path "#{pwd}/#{slug_vendor_base}/../../../graphicsmagick"
           gm_include_path = "#{gm_path}/include/GraphicsMagick"
           gm_lib_path     = "#{gm_path}/lib"
-          gm_ldflags      = "-L/#{gm_path}/lib -L/usr/lib -L/usr/lib"
+          gm_ldflags      = "-L/#{gm_path}/lib"
           puts "GM Include Path: #{gm_include_path}"
 
           env_vars       = {
