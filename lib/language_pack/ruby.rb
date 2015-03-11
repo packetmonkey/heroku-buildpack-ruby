@@ -549,7 +549,7 @@ WARNING
           # codon since it uses bundler.
 
           puts "Slug Vendor Base: #{slug_vendor_base}"
-          gm_include_path = File.expand_path "#{pwd}/#{slug_vendor_base}/../../../graphcismagick/include/GraphicsMagick"
+          gm_include_path = File.expand_path "#{pwd}/#{slug_vendor_base}/../../../graphicsmagick/include/GraphicsMagick"
           gm_lib_path     = File.expand_path "#{pwd}/#{slug_vendor_base}/../../../graphicsmagick/lib"
           puts "GM Include Path: #{gm_include_path}"
 
