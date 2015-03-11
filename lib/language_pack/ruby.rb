@@ -553,6 +553,7 @@ WARNING
           gm_include_path = "#{gm_path}/include/GraphicsMagick"
           gm_lib_path     = "#{gm_path}/lib"
           gm_ldflags      = "-L/#{gm_path}/lib"
+          gm_pkg_config   = "#{gm_path}/lib/pkgconfig"
           puts "GM Include Path: #{gm_include_path}"
 
           env_vars       = {
@@ -562,6 +563,7 @@ WARNING
             "CPPATH"                        => noshellescape("#{yaml_include}:#{gm_include_path}:$CPPATH"),
             "LIBRARY_PATH"                  => noshellescape("#{yaml_lib}:#{gm_lib_path}:$LIBRARY_PATH"),
             "LDFLAGS"                       => noshellescape("#{gm_ldflags}"),
+            "PKG_CONFIG_PATH"               => noshellescape("#{gm_pkg_config}"),
             "RUBYOPT"                       => syck_hack,
             "NOKOGIRI_USE_SYSTEM_LIBRARIES" => "true"
           }
